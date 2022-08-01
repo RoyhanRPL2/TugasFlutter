@@ -18,7 +18,7 @@ class _luasBangunDatar extends State<luasBangunDatar> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("formRegistration"),
+        title: Text("Luas Bangun Datar Segitiga"),
       ),
       body: Container(
         margin: EdgeInsets.all(10),
@@ -67,7 +67,8 @@ class _luasBangunDatar extends State<luasBangunDatar> {
                     setState(() {
                       if (ctrAlas.text.isNotEmpty &&
                           ctrTInggi.text.isNotEmpty) {
-                        ctrHasil.text = (0.5 * double.parse(ctrAlas.text) *
+                        ctrHasil.text = (0.5 *
+                                double.parse(ctrAlas.text) *
                                 double.parse(ctrTInggi.text))
                             .toString();
                       } else {

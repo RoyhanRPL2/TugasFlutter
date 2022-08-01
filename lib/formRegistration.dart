@@ -1,3 +1,4 @@
+import 'package:firstapp/SecondRoute.dart';
 import 'package:flutter/material.dart';
 
 class formRegistration extends StatefulWidget {
@@ -11,6 +12,7 @@ class _formRegistrationState extends State<formRegistration> {
   TextEditingController ctrUsername = new TextEditingController();
   TextEditingController ctrPassword = new TextEditingController();
   int id = 1;
+  String myPhone = "-";
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,6 @@ class _formRegistrationState extends State<formRegistration> {
       body: Container(
         margin: EdgeInsets.all(10),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TextField(
               controller: ctrUsername,
@@ -78,12 +79,31 @@ class _formRegistrationState extends State<formRegistration> {
                 Text("Female")
               ],
             ),
+            Text("phone :  " + myPhone),
+            ElevatedButton(
+                onPressed: () async {
+                  final result = await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SecondRoute()),
+                  );
+
+                  print('hasil input phone number : ' + result.toString());
+                  setState(() {
+                    myPhone = result.toString();
+                  });
+                  SizedBox(
+                    height: 20,
+                  );
+                },
+                child: Text("phone number")),
+            SizedBox(
+              height: 10,
+            ),
             Center(
               child: Container(
                 width: 200,
-                child: ElevatedButton(onPressed: (){
-
-                }, child: Text("Submit")),
+                child: ElevatedButton(onPressed: () {}, child: Text("Submit")),
               ),
             )
           ],
